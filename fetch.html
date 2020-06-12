@@ -3,11 +3,26 @@
 <body>
     <article>
         <input type="button" value="fetch" onclick="
+        /*
         fetch('html').then(function(response) {
+            // fetch api야, 작업이 끝나면 then() 안의 function을 실행시켜줘
           response.text().then(function(text) {
             document.querySelector('article').innerHTML = text;
           })
         })
+        */
+
+         //Asynchronous 비동기, synchronous 동기
+         function callbackme() {
+           console.log('response end');
+         }
+
+         fetch('html').then(callbackme);
+         console.log(1);
+         console.log(2);
+         // 비동기 실행 : html 다운받는 동안 밑의 코드가 동시에 실행된다. 그리고 서버가 응답하면 callbackme 함수가 실행된다.
+         // 동기 실행 : 요청이 시작되고 끝날 때까지 밑의 코드가 실행되면 안된다.
+
         ">
     </article>
 </body>
